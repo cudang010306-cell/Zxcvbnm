@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhậu không?</title>
+<style>
+body {
+  background: black;
+  color: #00ffcc;
+  font-family: monospace;
+  text-align: center;
+  margin: 0;
+  padding: 40px 0;
+  overflow: hidden;
+}
+h1 { font-size: 2.5em; margin-bottom: 12px; }
+p { font-size: 1.2em; margin-bottom: 24px; }
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #00ffcc;
+  background: transparent;
+  color: #00ffcc;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+}
+button:hover { background: #00ffcc; color: black; }
+
+/* Animation fade & zoom */
+@keyframes fadeZoom {
+  0% {opacity:0; transform: scale(0.7);}
+  100% {opacity:1; transform: scale(1);}
+}
+.box {
+  animation: fadeZoom 0.6s ease;
+}
+</style>
+</head>
+<body>
+
+<div id="choices">
+  <h1>⚡ REQUEST ⚡</h1>
+  <p>Cho xin 1 ngày rảnh</p>
+  <p>Mục đích: NHẬU 🍻</p>
+  <button id="acceptBtn">Chấp nhận</button>
+  <button id="nokmaBtn">không má</button>
+</div>
+
+<script>
+// Hàm hiển thị màn hình kết quả
+function showResult(title, message) {
+  document.body.innerHTML = `
+    <div class="box" style="
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:black;
+      color:#00ffcc;
+      font-family:monospace;
+      text-align:center;
+    ">
+      <h1>${title}</h1>
+      <p>${message}</p>
+      <button id="backBtn">OK</button>
+    </div>
+  `;
+  document.getElementById("backBtn").addEventListener("click", function(){
+    location.reload(); // quay lại lựa chọn ban đầu
+  });
+}
+
+// Nút Chấp nhận
+document.getElementById("acceptBtn").addEventListener("click", function(){
+  showResult("🔥 KÈO ĐÃ CHỐT 🔥", "Không say không về 😏🍻");
+});
+
+// Nút Không má
+document.getElementById("nokmaBtn").addEventListener("click", function(){
+  showResult("😏 Thôi kèo khác nhé!", "Bạn bè nói nghĩa nói tình<br>Không đi nhậu được thì mình nghỉ chơi 😏");
+});
+</script>
+
+</body>
+</html>
